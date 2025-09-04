@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKA MAHARANI XI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #3B2F2F; /* Cokelat Gelap */
+            color: #F0EAD6; /* Krem Terang */
+        }
+        .hero-section {
+            background-image: url('https://cdn.jsdelivr.net/gh/gurugenzi/start/maharani.jpg');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(59, 47, 47, 0.4); /* Overlay Cokelat Transparan */
+            z-index: 1;
+        }
+        .text-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+        .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* CSS untuk efek gelombang yang lebih besar */
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .wave-text {
+            animation-name: wave;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            display: inline-block;
+        }
+
+        /* Animasi kilauan pada tombol */
+        @keyframes pulse-yellow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(249, 211, 66, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(249, 211, 66, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 211, 66, 0);
+            }
+        }
+        .animate-pulse-yellow {
+            animation: pulse-yellow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        /* Efek interaktif untuk gambar sponsor */
+        .sponsor-logo {
+            filter: grayscale(100%);
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* Hambuger menu for mobile */
+        .hamburger {
+            display: none;
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 25, 23, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 40;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 640px) {
+            .hamburger {
+                display: block;
+                z-index: 60;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Kontainer untuk logo dan navigasi (desktop & mobile) -->
+    <div class="fixed top-4 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 md:px-16">
+        <!-- Logo Kiri -->
+        <img src="https://placehold.co/50x50/F9D342/3B2F2F?text=PRAMUKA" alt="Logo Pramuka SMAN 1 Cibungbulang" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-lg">
+        
+        <!-- Navbar Desktop -->
+        <nav class="hidden sm:block z-50">
+            <div class="bg-stone-900/50 backdrop-blur-md rounded-full px-6 py-2 shadow-lg flex items-center">
+                <div class="flex items-center space-x-4 md:space-x-8">
+                    <a href="#" class="flex items-center space-x-2 text-white font-semibold hover:text-yellow-400 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                        <span>Profil</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 text-white font-semibold hover:text-yellow-400 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                        <span>Formulir</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 text-white font-semibold hover:text-yellow-400 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l2.5 2.5L16 9"></path></svg>
+                        <span>Twibbon</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 text-white font-semibold hover:text-yellow-400 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>Panduan</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 text-white font-semibold hover:text-yellow-400 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                        <span>Pengumuman</span>
+                    </a>
+                    <a href="#contact-info" class="flex items-center space-x-2 text-white font-semibold hover:text-yellow-400 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3"></path><path d="M6 16.92V6.24a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10.68"></path><line x1="12" y1="2" x2="12" y2="4"></line></svg>
+                        <span>Kontak</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tombol Hamburger untuk Mobile -->
+        <button id="hamburger" class="hamburger text-white p-2 rounded-full hover:bg-white/10 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        
+        <!-- Logo Kanan -->
+        <img src="https://placehold.co/50x50/F9D342/3B2F2F?text=MAHARANI" alt="Logo LOKA MAHARANI XI" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-lg">
+    </div>
+
+    <!-- Menu Navigasi Mobile -->
+    <div id="mobile-menu" class="mobile-menu flex flex-col items-center justify-center pt-20">
+        <button id="close-menu" class="absolute top-4 right-4 text-white p-2 rounded-full hover:bg-white/10 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <ul class="space-y-6 text-center">
+            <li><a href="#" class="text-white text-2xl font-semibold block hover:text-yellow-400 transition">Profil</a></li>
+            <li><a href="#" class="text-white text-2xl font-semibold block hover:text-yellow-400 transition">Formulir</a></li>
+            <li><a href="#" class="text-white text-2xl font-semibold block hover:text-yellow-400 transition">Twibbon</a></li>
+            <li><a href="#" class="text-white text-2xl font-semibold block hover:text-yellow-400 transition">Panduan</a></li>
+            <li><a href="#" class="text-white text-2xl font-semibold block hover:text-yellow-400 transition">Pengumuman</a></li>
+            <li><a href="#contact-info" class="text-white text-2xl font-semibold block hover:text-yellow-400 transition">Kontak</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section h-screen flex flex-col items-center justify-center text-center p-4">
+        <div class="z-20 relative">
+            <h1 class="text-white text-4xl sm:text-6xl md:text-8xl font-bold mb-2 sm:mb-4 text-oswald uppercase leading-tight text-shadow-custom">
+                LOKA MAHARANI XI
+            </h1>
+            <p class="text-white justify-center text-sm sm:text-lg md:text-2xl mb-4 sm:mb-8 max-w-2xl text-shadow-custom">
+                Ajang Kreasi dan Prestasi Pramuka Penggalang & Penegak se-Kabupaten Bogor.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row items-center justify-center">
+                <button class="bg-yellow-400 text-stone-900 text-md sm:text-lg font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 transform hover:scale-105 animate-pulse-yellow">
+                    Panduan Lomba
+                </button>
+                <a href="#contact-info" class="bg-transparent border-2 border-stone-900 text-yellow-400 text-md sm:text-lg font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-full hover:bg-yellow-400 hover:text-stone-900 transition duration-300 transform hover:scale-105 mt-4 sm:mt-0">
+                    Hubungi Panitia
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="relative z-30">
+        <section class="mx-auto max-w-5xl bg-stone-100 rounded-2xl shadow-2xl p-4 sm:p-8 -mt-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+                <div class="relative bg-white rounded-lg p-4 sm:p-6 text-stone-900 shadow-md -rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Lomba Kepramukaan</h3>
+                    <p class="text-sm sm:text-base">Uji kemampuan dan kekompakan ambalan dan regu Anda dalam berbagai lomba kepramukaan.</p>
+                </div>
+                <div class="relative bg-white rounded-lg p-4 sm:p-6 text-stone-900 shadow-md rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Kreasi Seni</h3>
+                    <p class="text-sm sm:text-base">Tunjukkan bakat dan kreativitas seni terbaik.</p>
+                </div>
+                <div class="relative bg-white rounded-lg p-4 sm:p-6 text-stone-900 shadow-md -rotate-2 hover:rotate-0 transition-transform duration-300">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Tali Persaudaraan</h3>
+                    <p class="text-sm sm:text-base">Pererat tali silaturahmi dan jalin persaudaraan dengan pramuka lainnya.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Wave Text Section -->
+        <section class="text-center py-8 sm:py-16">
+            <div class="flex justify-center items-center space-x-2 sm:space-x-6">
+                <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 0s;">LOMBA</span>
+                <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 0.3s;">PRAMUKA</span>
+                <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 0.6s;">MAHIR</span>
+                <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 0.9s;">BERANI</span>
+                <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 1.2s;">XI</span>
+            </div>
+        </section>
+
+        <!-- Jadwal Acara Section with Horizontal Cards -->
+        <section class="p-4 sm:p-8 relative">
+            <div class="absolute inset-0 bg-stone-800 rounded-xl sm:rounded-3xl"></div>
+            <div class="relative z-10 text-center py-8 sm:py-12">
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-white text-oswald uppercase">Timeline Acara</h2>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-4 sm:space-y-8 md:space-y-0 md:space-x-8">
+                    <!-- Item Timeline 1 -->
+                    <details class="group relative bg-stone-100 rounded-xl p-4 sm:p-6 shadow-lg border-2 border-transparent hover:border-yellow-400 transition-colors duration-300 w-full md:w-1/3 hover:scale-105 transition-transform duration-300">
+                        <summary class="flex flex-col items-center justify-center text-center cursor-pointer">
+                            <div class="bg-yellow-400 h-12 w-12 sm:h-16 sm:w-16 rounded-full flex items-center justify-center mb-2 sm:mb-4">
+                                <!-- Calendar Icon -->
+                                <svg class="h-6 w-6 sm:h-8 sm:w-8 text-stone-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <h3 class="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 text-stone-900">WAKTU DAN TEMPAT</h3>
+                            <p class="text-xs sm:text-sm text-stone-600">November 2025</p>
+                        </summary>
+                        <div class="pt-2 sm:pt-4 mt-2 sm:mt-4 border-t border-gray-300 text-left">
+                            <p class="text-xs sm:text-sm text-stone-600">Hari: <span class="text-stone-900 font-bold">Sabtu</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Tanggal: <span class="text-stone-900 font-bold">04 November 2025</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Pukul: <span class="text-stone-900 font-bold">06.00 s.d. Selesai</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Tempat: <span class="text-stone-900 font-bold">SMA Negeri 1 Cibungbulang</span></p>
+                        </div>
+                    </details>
+                    
+                    <!-- Item Timeline 2 -->
+                    <details class="group relative bg-stone-100 rounded-xl p-4 sm:p-6 shadow-lg border-2 border-transparent hover:border-yellow-400 transition-colors duration-300 w-full md:w-1/3 hover:scale-105 transition-transform duration-300">
+                        <summary class="flex flex-col items-center justify-center text-center cursor-pointer">
+                            <div class="bg-yellow-400 h-12 w-12 sm:h-16 sm:w-16 rounded-full flex items-center justify-center mb-2 sm:mb-4">
+                                <!-- Meeting Icon -->
+                                <svg class="h-6 w-6 sm:h-8 sm:w-8 text-stone-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2z"></path><path d="M16 12h-2m-4 0h-2m-4 0H4"></path></svg>
+                            </div>
+                            <h3 class="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 text-stone-900">TECHNICAL MEETING</h3>
+                            <p class="text-xs sm:text-sm text-stone-600">Oktober 2025</p>
+                        </summary>
+                        <div class="pt-2 sm:pt-4 mt-2 sm:mt-4 border-t border-gray-300 text-left">
+                            <p class="text-xs sm:text-sm text-stone-600">Hari: <span class="text-stone-900 font-bold">Sabtu</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Tanggal: <span class="text-stone-900 font-bold">07 Oktober 2025</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Pukul: <span class="text-stone-900 font-bold">09.00 s.d. Selesai</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Tempat: <span class="text-stone-900 font-bold">SMA Negeri 1 Cibungbulang</span></p>
+                        </div>
+                    </details>
+                    
+                    <!-- Item Timeline 3 -->
+                    <details class="group relative bg-stone-100 rounded-xl p-4 sm:p-6 shadow-lg border-2 border-transparent hover:border-yellow-400 transition-colors duration-300 w-full md:w-1/3 hover:scale-105 transition-transform duration-300">
+                        <summary class="flex flex-col items-center justify-center text-center cursor-pointer">
+                            <div class="bg-yellow-400 h-12 w-12 sm:h-16 sm:w-16 rounded-full flex items-center justify-center mb-2 sm:mb-4">
+                                <!-- Register Icon -->
+                                <svg class="h-6 w-6 sm:h-8 sm:w-8 text-stone-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <h3 class="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 text-stone-900">WAKTU PENDAFTARAN</h3>
+                            <p class="text-xs sm:text-sm text-stone-600">September - Oktober 2025</p>
+                        </summary>
+                        <div class="pt-2 sm:pt-4 mt-2 sm:mt-4 border-t border-gray-300 text-left">
+                            <p class="text-xs sm:text-sm text-stone-600">Tanggal: <span class="text-stone-900 font-bold">26 Sep - 06 Okt</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Hari: <span class="text-stone-900 font-bold">Senin - Sabtu</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Waktu: <span class="text-stone-900 font-bold">08.00 s.d. 16.00 WIB</span></p>
+                            <p class="text-xs sm:text-sm text-stone-600">Tempat: <span class="text-stone-900 font-bold">Online & SMA Negeri 1 Cibungbulang</span></p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lomba Section -->
+        <section class="my-8 sm:my-16 p-4 sm:p-8 relative">
+            <div class="absolute inset-0 bg-stone-800 rounded-xl sm:rounded-3xl"></div>
+            <div class="relative z-10 text-center py-8 sm:py-12">
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-white text-oswald uppercase">Daftar Lomba</h2>
+                <div class="bg-stone-100 rounded-xl p-4 sm:p-6 shadow-lg text-left">
+                    <ul class="space-y-4">
+                        <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba PBB & Variasi</p>
+                                <p class="text-sm text-stone-600">Hadiah: Piala Bergilir + Uang Tunai</p>
+                            </div>
+                            <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
+                        </li>
+                        <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Cerdas Cermat</p>
+                                <p class="text-sm text-stone-600">Hadiah: Piala + Sertifikat</p>
+                            </div>
+                            <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
+                        </li>
+                        <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Senam Pramuka</p>
+                                <p class="text-sm text-stone-600">Hadiah: Piala + Piagam Penghargaan</p>
+                            </div>
+                            <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsor Section -->
+        <section class="mx-auto max-w-5xl my-8 sm:my-16 p-4 sm:p-8 relative text-center">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-white text-oswald uppercase">Sponsor Kami</h2>
+            <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-8">
+                <img src="https://placehold.co/150x70/E6CC4D/3B2F2F?text=Sponsor+A" alt="Sponsor A" class="sponsor-logo rounded-lg shadow-lg w-28 sm:w-auto">
+                <img src="https://placehold.co/150x70/E6CC4D/3B2F2F?text=Sponsor+B" alt="Sponsor B" class="sponsor-logo rounded-lg shadow-lg w-28 sm:w-auto">
+                <img src="https://placehold.co/150x70/E6CC4D/3B2F2F?text=Sponsor+C" alt="Sponsor C" class="sponsor-logo rounded-lg shadow-lg w-28 sm:w-auto">
+                <img src="https://placehold.co/150x70/E6CC4D/3B2F2F?text=Sponsor+D" alt="Sponsor D" class="sponsor-logo rounded-lg shadow-lg w-28 sm:w-auto">
+            </div>
+        </section>
+
+        <!-- Contact & Information Section -->
+        <section id="contact-info" class="mx-auto max-w-3xl my-8 sm:my-16 p-4 sm:p-8 relative">
+            <div class="absolute inset-0 bg-yellow-500 rounded-xl sm:rounded-3xl"></div>
+            <div class="relative z-10 p-4 sm:p-8 text-center bg-stone-100 rounded-xl sm:rounded-3xl shadow-lg">
+                <h2 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4 text-stone-900 text-oswald uppercase">Kontak & Informasi</h2>
+                
+                <!-- Contact Person -->
+                <div class="mb-4 sm:mb-8">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-stone-900">Kontak Person</h3>
+                    <ul class="space-y-2 text-stone-800">
+                        <li>
+                            <a href="https://wa.me/6285881653530" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
+                                <span class="font-bold">Muhamad Komarudin</span>
+                                <span>(0858 8165 3530)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/6283811139908" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
+                                <span class="font-bold">Zidhan Erlan Sunanda</span>
+                                <span>(0838 1113 9908)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/6285881651265" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
+                                <span class="font-bold">Siti Sukmawati</span>
+                                <span>(0858 8165 1265)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Informasi Tambahan -->
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-stone-900">Informasi Tambahan</h3>
+                    <p class="text-stone-800 mb-4">
+                        Informasi tambahan akan disampaikan melalui akun di bawah ini.
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="https://www.facebook.com/Pramukasmansatucibungbulang" target="_blank" class="bg-white text-stone-900 py-3 px-6 rounded-full shadow hover:bg-gray-100 transition">
+                            Facebook: Pramukasmansatucibungbulang
+                        </a>
+                        <a href="https://www.instagram.com/scout.maharani" target="_blank" class="bg-white text-stone-900 py-3 px-6 rounded-full shadow hover:bg-gray-100 transition">
+                            Instagram: @scout.maharani
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mx-auto max-w-5xl my-8 sm:my-16 p-4 sm:p-8 relative">
+            <div class="absolute inset-0 bg-stone-800 rounded-xl sm:rounded-3xl"></div>
+            <div class="relative z-10 text-center py-8 sm:py-12">
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 text-white">Daftarkan Gugusdepan Anda Sekarang!</h2>
+                <p class="text-md sm:text-lg text-white mb-4 sm:mb-6 max-w-2xl mx-auto">
+                    Jadilah bagian dari ajang LOKA MAHARANI XI dan tunjukkan yang terbaik.
+                </p>
+                <a href="#contact-info" class="bg-yellow-400 text-stone-900 text-md sm:text-lg font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 transform hover:scale-105 animate-pulse-yellow">
+                    Daftar Sekarang
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white py-8 sm:py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <!-- Informasi Alamat -->
+            <div>
+                <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-yellow-400">Sanggar Bakti</h3>
+                <p class="text-sm">SMA Negeri 1 Cibungbulang</p>
+                <p class="text-sm">Jl. Kapten Dasuki Bakrie, Cibatok 2, Kec. Cibungbulang, Bogor, Jawa Barat 16630</p>
+            </div>
+            
+            <!-- Ketentuan & Tautan -->
+            <div>
+                <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-yellow-400">Informasi</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:underline">Ketentuan dan Syarat</a></li>
+                    <li><a href="#" class="hover:underline">Panduan Lomba</a></li>
+                    <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            
+            <!-- Pemilik -->
+            <div>
+                <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-yellow-400">Penyelenggara</h3>
+                <p class="text-sm">PRAMUKA SMAN 1 CIBUNGBULANG</p>
+                <h3 class="mt-4 text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-yellow-400">Didukung oleh</h3>
+                <p class="text-sm">PURNA MAHARANI</p>
+            </div>
+        </div>
+        <div class="mt-4 sm:mt-8 pt-4 sm:pt-8 border-t border-gray-700 text-center text-stone-400 text-xs sm:text-sm">
+            <p>&copy; 2025 PRAMUKA SMAN 1 CIBUNGBULANG / MAHARANI. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Menutup menu saat link diklik
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
