@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -106,6 +107,10 @@
                 z-index: 60;
             }
         }
+
+        .text-typewriter {
+            font-family: 'Dancing Script', cursive;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -181,12 +186,13 @@
     <!-- Hero Section -->
     <header class="hero-section h-screen flex flex-col items-center justify-center text-center p-4">
         <div class="z-20 relative">
-            <h1 class="text-white text-4xl sm:text-6xl md:text-8xl font-bold mb-2 sm:mb-4 text-oswald uppercase leading-tight text-shadow-custom">
+            <h1 class="text-white text-4xl sm:text-6xl md:text-9xl font-bold mb-2 sm:mb-4 text-oswald uppercase leading-tight text-shadow-custom">
                 LOKA MAHARANI XI
             </h1>
-            <p class="text-white justify-center text-sm sm:text-lg md:text-2xl mb-4 sm:mb-8 max-w-2xl text-shadow-custom">
+            <p class="text-white justify-center text-sm sm:text-lg md:text-4xl mb-4 sm:mb-8 max-w-5xl text-typewriter text-shadow-custom">
                 Ajang Kreasi dan Prestasi Pramuka Penggalang & Penegak se-Kabupaten Bogor.
             </p>
+            <!-- Call to Action Buttons -->
             <div class="space-y-4 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row items-center justify-center">
                 <button class="bg-yellow-400 text-stone-900 text-md sm:text-lg font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 transform hover:scale-105 animate-pulse-yellow">
                     Panduan Lomba
@@ -203,22 +209,22 @@
         <section class="mx-auto max-w-5xl bg-stone-100 rounded-2xl shadow-2xl p-4 sm:p-8 -mt-24">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
                 <div class="relative bg-white rounded-lg p-4 sm:p-6 text-stone-900 shadow-md -rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Lomba Kepramukaan</h3>
-                    <p class="text-sm sm:text-base">Uji kemampuan dan kekompakan ambalan dan regu Anda dalam berbagai lomba kepramukaan.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Lomba Pramuka</h3>
+                    <p class="text-sm sm:text-base"> Panggung buat nunjukin semua skill yang udah kalian asah, dari yang paling dasar sampai paling epic. Unlock potensi tersembunyimu!.</p>
                 </div>
                 <div class="relative bg-white rounded-lg p-4 sm:p-6 text-stone-900 shadow-md rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Kreasi Seni</h3>
-                    <p class="text-sm sm:text-base">Tunjukkan bakat dan kreativitas seni terbaik.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Mahir</h3>
+                    <p class="text-sm sm:text-base">Mahir itu bukan tentang siapa yang paling banyak hafal, tapi siapa yang paling fasih dan sat set pas action. It's about turning knowledge into power.</p>
                 </div>
                 <div class="relative bg-white rounded-lg p-4 sm:p-6 text-stone-900 shadow-md -rotate-2 hover:rotate-0 transition-transform duration-300">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Tali Persaudaraan</h3>
-                    <p class="text-sm sm:text-base">Pererat tali silaturahmi dan jalin persaudaraan dengan pramuka lainnya.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Berani</h3>
+                    <p class="text-sm sm:text-base">Keberanian untuk gas terus meskipun epic fail di depan mata. Berani itu vibes lo yang nggak takut coba hal baru dan selalu positive vibes only.</p>
                 </div>
             </div>
         </section>
 
         <!-- Animated Wave Text Section -->
-        <section class="text-center py-8 sm:py-16">
+        <section class="text-center py-2 sm:py-4 mt-16">
             <div class="flex justify-center items-center space-x-2 sm:space-x-6">
                 <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 0s;">LOMBA</span>
                 <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 0.3s;">PRAMUKA</span>
@@ -227,7 +233,36 @@
                 <span class="wave-text text-xl sm:text-4xl font-bold text-yellow-400" style="animation-delay: 1.2s;">XI</span>
             </div>
         </section>
+        <!-- Countdown Section -->
+        <section class="text-center py-2 mb-8">
+            <div id="countdown" class="flex justify-center space-x-2 sm:space-x-4 md:space-x-8 text-yellow-400">
+                <div class="flex flex-col items-center">
+                    <span id="days" class="text-3xl sm:text-5xl md:text-6xl font-bold text-oswald">00</span>
+                    <span class="text-sm sm:text-lg">Hari</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="hours" class="text-3xl sm:text-5xl md:text-6xl font-bold text-oswald">00</span>
+                    <span class="text-sm sm:text-lg">Jam</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="minutes" class="text-3xl sm:text-5xl md:text-6xl font-bold text-oswald">00</span>
+                    <span class="text-sm sm:text-lg">Menit</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="seconds" class="text-3xl sm:text-5xl md:text-6xl font-bold text-oswald">00</span>
+                    <span class="text-sm sm:text-lg">Detik</span>
+                </div>
+            </div>
+        </section>
 
+        <!-- About Section -->
+        <section id="about" class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 bg-stone-800 text-center mb-8 rounded-2xl shadow-2xl">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 font-oswald uppercase text-yellow-400">Tentang LOKA MAHARANI</h2>
+            <p class="max-w-7xl mx-auto text-lg leading-relaxed text-center">
+            Loka Maharani adalah acara lomba yang diselenggarakan oleh Pramuka SMAN 1 Cibungbulang, dirancang untuk menguji keterampilan dan semangat kompetisi. Kami mengundang seluruh peserta untuk mengasah kemampuan, menunjukkan bakat terbaik, dan menjalin persahabatan sejati. Lomba ini tidak hanya tentang kompetisi, tetapi juga tentang pengalaman berharga dan kenangan indah yang akan selalu kalian bawa.
+            </p>
+        </section>
+               
         <!-- Jadwal Acara Section with Horizontal Cards -->
         <section class="p-4 sm:p-8 relative">
             <div class="absolute inset-0 bg-stone-800 rounded-xl sm:rounded-3xl"></div>
@@ -296,27 +331,55 @@
         <section class="my-8 sm:my-16 p-4 sm:p-8 relative">
             <div class="absolute inset-0 bg-stone-800 rounded-xl sm:rounded-3xl"></div>
             <div class="relative z-10 text-center py-8 sm:py-12">
-                <h2 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-white text-oswald uppercase">Daftar Lomba</h2>
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-white text-oswald uppercase">LOMBA PENEGAK</h2>
                 <div class="bg-stone-100 rounded-xl p-4 sm:p-6 shadow-lg text-left">
                     <ul class="space-y-4">
                         <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
                             <div class="text-center sm:text-left">
                                 <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba PBB & Variasi</p>
-                                <p class="text-sm text-stone-600">Hadiah: Piala Bergilir + Uang Tunai</p>
+                                <p class="text-sm text-stone-600">Saatnya kalian menunjukkan simfoni kekompakan dan disiplin tim, di mana setiap gerakan dan langkah menjadi bukti solidnya persaudaraan.</p>
                             </div>
                             <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
                         </li>
                         <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
                             <div class="text-center sm:text-left">
                                 <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Cerdas Cermat</p>
-                                <p class="text-sm text-stone-600">Hadiah: Piala + Sertifikat</p>
+                                <p class="text-sm text-stone-600">Adu otak paling seru di mana kecepatan berpikir dan ketajaman wawasan kalian diuji.</p>
                             </div>
                             <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
                         </li>
                         <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
                             <div class="text-center sm:text-left">
-                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Senam Pramuka</p>
-                                <p class="text-sm text-stone-600">Hadiah: Piala + Piagam Penghargaan</p>
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Sketsa Panorama</p>
+                                <p class="text-sm text-stone-600">Panggung bagi jiwa seniman pramuka. Dengan pensil dan kertas, kalian diajak untuk menangkap keindahan alam dan mengubahnya menjadi karya seni yang berbicara.</p>
+                            </div>
+                            <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="relative z-10 text-center py-8 sm:py-12">
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-white text-oswald uppercase">LOMBA PENGGALANG</h2>
+                <div class="bg-stone-100 rounded-xl p-4 sm:p-6 shadow-lg text-left">
+                    <ul class="space-y-4">
+                        <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba PBB & Variasi</p>
+                                <p class="text-sm text-stone-600">Saatnya kalian menunjukkan simfoni kekompakan dan disiplin tim, di mana setiap gerakan dan langkah menjadi bukti solidnya persaudaraan.</p>
+                            </div>
+                            <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
+                        </li>
+                        <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Cerdas Cermat</p>
+                                <p class="text-sm text-stone-600">Adu otak paling seru di mana kecepatan berpikir dan ketajaman wawasan kalian diuji.</p>
+                            </div>
+                            <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
+                        </li>
+                        <li class="p-4 bg-white rounded-lg flex flex-col sm:flex-row justify-between items-center sm:items-center transform hover:scale-105 transition duration-300">
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-xl font-semibold text-stone-900 mb-2 sm:mb-0">Lomba Sketsa Panorama</p>
+                                <p class="text-sm text-stone-600">Panggung bagi jiwa seniman pramuka. Dengan pensil dan kertas, kalian diajak untuk menangkap keindahan alam dan mengubahnya menjadi karya seni yang berbicara.</p>
                             </div>
                             <a href="#" class="bg-yellow-400 text-stone-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition duration-300 mt-4 sm:mt-0">Daftar</a>
                         </li>
@@ -347,21 +410,21 @@
                     <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-stone-900">Kontak Person</h3>
                     <ul class="space-y-2 text-stone-800">
                         <li>
-                            <a href="https://wa.me/6285881653530" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
-                                <span class="font-bold">Muhamad Komarudin</span>
-                                <span>(0858 8165 3530)</span>
+                            <a href="https://wa.me/628588585888" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
+                                <span class="font-bold">Siloka</span>
+                                <span>(0858 8585 8888)</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://wa.me/6283811139908" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
-                                <span class="font-bold">Zidhan Erlan Sunanda</span>
-                                <span>(0838 1113 9908)</span>
+                            <a href="https://wa.me/6283811111111" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
+                                <span class="font-bold">Simaha</span>
+                                <span>(0838 1111 1111)</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://wa.me/6285881651265" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
-                                <span class="font-bold">Siti Sukmawati</span>
-                                <span>(0858 8165 1265)</span>
+                            <a href="https://wa.me/62858888888888" target="_blank" class="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-2 hover:underline">
+                                <span class="font-bold">Sirani</span>
+                                <span>(0858 8888 8888)</span>
                             </a>
                         </li>
                     </ul>
@@ -450,6 +513,30 @@
                 mobileMenu.classList.remove('active');
             });
         });
+
+        // Countdown Timer
+        const countdownDate = new Date("October 07, 2025 09:00:00").getTime();
+
+        const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "<p class='text-yellow-400 text-xl sm:text-2xl md:text-3xl font-bold'>ACARA SUDAH DIMULAI!</p>";
+         return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        }, 1000);
     </script>
 </body>
 </html>
